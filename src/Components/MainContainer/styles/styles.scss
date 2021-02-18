@@ -1,0 +1,126 @@
+.mainContainer {
+  width: 100%;
+  height: calc(100vh - 70px);
+
+  display: flex;
+  flex-direction: row;
+
+  .content,
+  .sideBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    padding-top: 30px;
+  }
+  .content {
+    width: 75%;
+    border-right: 1px solid black;
+  }
+
+  .sideBar {
+    width: 25%;
+    align-items: center;
+
+    .searchResults {
+      width: 100%;
+      margin-top: 40px;
+
+      .listElement {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 10px;
+
+        .heroImage {
+          margin-right: 15px;
+        }
+      }
+
+      .listElement:nth-child(2n + 1) {
+        background: lightgray;
+      }
+    }
+
+    .searchInput {
+      width: 80%;
+      max-width: 200px;
+      height: 30px;
+      border-radius: 20px;
+      padding-left: 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+.content,
+.favorites {
+  overflow-y: auto;
+
+  a {
+    width: 100%;
+    padding-right: 20px;
+    .listElement {
+      width: 100%;
+    }
+  }
+
+  .peoples {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .heroesEnd {
+      text-align: center;
+    }
+
+    .paginationWrapper {
+      // background: blue;
+      padding: 10px;
+      margin: 10px;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 30px;
+
+      .MuiCircularProgress-root {
+        margin-right: 20px;
+      }
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .listElement {
+    font-size: 22px;
+    height: 20px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid black;
+    }
+
+    .name {
+      margin-left: 20px;
+    }
+
+    .heroImage {
+      min-width: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

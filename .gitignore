@@ -1,0 +1,17 @@
+/node_modules
+/.vscode
+/build
+/coverage
+.idea
+
+node_modules
+.vscode
+build
+coverage
+/.idea
+
+# cache
+.eslintcache
+.cache
+src/Store/store.js
+.tsbuildinfo

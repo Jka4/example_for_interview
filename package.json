@@ -1,0 +1,52 @@
+{
+  "name": "steelKiwi",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Vladimir Plotnik <plotnik1295@gmail.com>",
+  "homepage": "http://jka4.github.io/steelKiwi",
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@reduxjs/toolkit": "^1.5.0",
+    "axios": "^0.21.1",
+    "fuse.js": "^6.4.6",
+    "lodash.throttle": "^4.1.1",
+    "lodash.uniqby": "^4.7.0",
+    "node-sass": "^5.0.0",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "react-tabs": "^3.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+.header {
+  .headerInner {
+    min-height: 70px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .headerLinks {
+    margin-right: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-weight: 700;
+
+    font-size: 18px;
+  }
+
+  .logotype {
+    height: 45px;
+    width: auto;
+  }
+}
