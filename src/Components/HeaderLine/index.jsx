@@ -17,7 +17,7 @@ const HeaderLine = () => {
     <>
       <AppBar className="header">
         <div className="headerInner">
-          <NavLink to="/people-list">
+          <NavLink to="/">
             <img
               className="logotype"
               src="https://seeklogo.com/images/S/star-wars-logo-886FACEAFF-seeklogo.com.png"

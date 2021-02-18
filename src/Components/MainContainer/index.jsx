@@ -9,18 +9,16 @@ const SideBar = lazy(() => import('./views/SideBar'));
 
 const MainContainer = () => {
   return (
-    <>
-      <section className="mainContainer">
-        <div className="content">
-          <Switch>
-            <Route exact path="/people-list" component={Peoples} />
-            <Route exact path="/favorites-list" component={Favorites} />
-          </Switch>
-        </div>
+    <section className="mainContainer">
+      <div className="content">
+        <Switch>
+          <Route exact path="/people-list" component={Peoples} />
+          <Route exact path="/favorites-list" component={Favorites} />
+        </Switch>
+      </div>
 
-        <SideBar />
-      </section>
-    </>
+      <SideBar />
+    </section>
   );
 };
 

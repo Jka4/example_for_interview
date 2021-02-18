@@ -4,6 +4,10 @@
   "private": true,
   "author": "Vladimir Plotnik <plotnik1295@gmail.com>",
   "homepage": "http://jka4.github.io/steelKiwi",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build"
+  },
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -26,10 +30,6 @@
     "react-tabs": "^3.2.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
-  },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build"
   },
   "eslintConfig": {
     "extends": [
