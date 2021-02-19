@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
-
+import Player from '@Components/Player';
 import './styles/styles.scss';
 
 const HeaderLine = () => {
@@ -18,13 +18,16 @@ const HeaderLine = () => {
     <>
       <AppBar className="header">
         <div className="headerInner">
-          <NavLink to="/">
-            <img
-              className="logotype"
-              src="https://seeklogo.com/images/S/star-wars-logo-886FACEAFF-seeklogo.com.png"
-              alt=""
-            />
-          </NavLink>
+          <div className="headersButtons">
+            <NavLink to="/">
+              <img
+                className="logotype"
+                src="https://seeklogo.com/images/S/star-wars-logo-886FACEAFF-seeklogo.com.png"
+                alt=""
+              />
+            </NavLink>
+            <Player />
+          </div>
 
           <div className="headerLinks">
             {linksConfig.map((el) => (

@@ -31,7 +31,8 @@
     "react-starfield-animation": "^1.0.1",
     "react-tabs": "^3.2.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "use-sound": "^2.0.1"
   },
   "eslintConfig": {
     "extends": [

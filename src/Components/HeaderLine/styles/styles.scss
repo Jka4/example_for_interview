@@ -13,6 +13,16 @@
     width: 100%;
   }
 
+  .headersButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .player {
+      margin-left: 20px;
+    }
+  }
+
   .headerLinks {
     margin-right: 20px;
 
