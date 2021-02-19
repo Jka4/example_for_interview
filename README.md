@@ -19,3 +19,23 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
+
+
+## Used libs:
+- craco
+- fortawesome
+- material-ui
+- reduxjs/toolkit
+- axios
+- fuse.js
+- lodash
+- normalize.css
+- prop-types
+- react
+- react-redux
+- react-router-dom
+- react-starfield-animation
+- react-tabs
+- redux-logger
+- redux-thunk
+- use-sound"
