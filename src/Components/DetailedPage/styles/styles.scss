@@ -3,6 +3,9 @@
   height: 100%;
   height: calc(100vh - 90px);
   color: white;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 
   .DetailedPage_inner {
     display: flex;
