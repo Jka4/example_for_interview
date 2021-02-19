@@ -46,13 +46,14 @@ const SideBar = () => {
   return (
     <>
       <div className="sideBar">
-        <TextField
+        {/* <TextField
           id="outlined-basic"
           onChange={handleInput}
           label="Search by name"
           variant="outlined"
           autoComplete="off"
-        />
+        /> */}
+        <input type="text" className="searchInput" placeholder="Search by name" onChange={handleInput} />
 
         <div className="searchResults">
           {filtered.map((el) => (

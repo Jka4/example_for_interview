@@ -1,9 +1,19 @@
 import React from 'react';
+import StarfieldAnimation from 'react-starfield-animation';
 import '../styles/helloPage.scss';
 
 const HelloPage = () => {
   return (
     <div className="page">
+      <div className="starsBackground">
+        <StarfieldAnimation
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
+          numParticles={1000}
+          alphaFactor={2}
+          depth={600}
+        />
+      </div>
+
       <div className="page-content">
         <i className="dark-bg"></i>
         <div className="layers-rock-last">

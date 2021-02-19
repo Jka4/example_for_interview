@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   height: calc(100vh - 90px);
+  color: white;
 
   .DetailedPage_inner {
     display: flex;
@@ -69,6 +70,10 @@
       display: flex;
       justify-content: space-between;
       font-size: 18px;
+      border: 1px solid white;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
 
       .title {
         box-sizing: border-box;
@@ -77,10 +82,6 @@
       .releaseDate {
         margin-right: 200px;
       }
-    }
-
-    .element:nth-child(2n + 1) {
-      background: lightgray;
     }
   }
 }

@@ -1,4 +1,6 @@
 .header {
+  background: #4e237d !important;
+
   .headerInner {
     min-height: 70px;
     display: flex !important;
@@ -13,19 +15,20 @@
 
   .headerLinks {
     margin-right: 20px;
-  }
 
-  a {
-    text-decoration: none;
-    color: white;
-    margin-left: 20px;
-    font-weight: 700;
+    a {
+      text-decoration: none;
+      color: white;
+      margin-left: 20px;
+      font-weight: 700;
 
-    font-size: 18px;
+      font-size: 18px;
+    }
   }
 
   .logotype {
     height: 45px;
     width: auto;
+    padding-left: 20px;
   }
 }

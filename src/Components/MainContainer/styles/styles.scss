@@ -3,6 +3,7 @@
   height: calc(100vh - 70px);
   display: flex;
   flex-direction: row;
+  color: white;
 
   .content,
   .sideBar {
@@ -15,12 +16,16 @@
   }
   .content {
     width: 75%;
-    border-right: 1px solid black;
+    border-right: 1px solid white;
   }
 
   .sideBar {
     width: 25%;
     align-items: center;
+
+    // .MuiOutlinedInput-root {
+    //   border: 1px solid greenyellow;
+    // }
 
     .searchResults {
       width: 100%;
@@ -34,24 +39,27 @@
         justify-content: flex-start;
         align-items: center;
         padding-left: 10px;
+        border: 1px solid white;
 
         .heroImage {
           margin-right: 15px;
         }
-      }
-
-      .listElement:nth-child(2n + 1) {
-        background: lightgray;
       }
     }
 
     .searchInput {
       width: 80%;
       max-width: 200px;
-      height: 30px;
+      height: 40px;
       border-radius: 20px;
       padding-left: 20px;
       font-size: 14px;
+      outline: none;
+      background: #4e237d;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: 3px solid #e91e63;
     }
   }
 }
@@ -87,6 +95,14 @@
       align-items: center;
       height: 30px;
 
+      .MuiButtonBase-root:disabled {
+        background: #770029;
+      }
+
+      .MuiButtonBase-root {
+        background: #e91e63;
+      }
+
       .MuiCircularProgress-root {
         margin-right: 20px;
       }
@@ -106,10 +122,10 @@
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    border: 1px solid transparent;
+    border: 1px solid white;
 
     &:hover {
-      border: 1px solid black;
+      border: 1px solid #e91e63;
     }
 
     .name {
