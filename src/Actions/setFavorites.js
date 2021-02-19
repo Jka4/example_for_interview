@@ -1,4 +1,4 @@
-function setFavorites(heroId, favorites) {
+const setFavorites = (heroId, favorites) => {
   return (dispatch) => {
     const alreadyInFavorite = favorites?.includes(heroId);
     let newArr = [];
@@ -15,6 +15,6 @@ function setFavorites(heroId, favorites) {
 
     dispatch({ type: 'ADD_TO_FAVORITES', payload: newArr });
   };
-}
+};
 
 export { setFavorites };

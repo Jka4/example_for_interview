@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes, { checkPropTypes } from 'prop-types';
 
-import axios from 'axios';
 import uniqBy from 'lodash.uniqby';
+import { getTabsInfo } from '@Actions/getTabsInfo';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
@@ -48,21 +48,13 @@ const TabsPanel = () => {
 const TabContent = (urls, tabName) => {
   let [list, setList] = useState([]);
 
-  const fetchTabsInfo = (url) => {
-    axios
-      .get(url)
-      .then((response) => {
-        const data = response.data;
-        setList((list) => uniqBy([...list, data], 'title'));
-      })
-      .catch(() => {
-        fetchTabsInfo(url);
-      });
-  };
-
   useEffect(() => {
     if (list.length === 0) {
-      urls?.forEach((el) => fetchTabsInfo(el));
+      urls?.forEach((el) =>
+        getTabsInfo(el).then((data) => {
+          setList((list) => uniqBy([...list, data], 'title'));
+        }),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urls]);

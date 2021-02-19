@@ -1,21 +1,15 @@
-import axios from 'axios';
+// @ts-nocheck
 
-function setFavoritesList(favorites) {
+import { SWAPI } from '@Actions/SWAPI_wrapper';
+
+const setFavoritesList = (favorites) => {
   return (dispatch) => {
     favorites.forEach((id) => {
-      const URL = `https://swapi.dev/api/people/${id}/`;
-
-      return axios
-        .get(URL)
-        .then((response) => {
-          const hero = response.data;
-          dispatch({ type: 'SET_FAVORITES_LIST', payload: hero });
-        })
-        .catch((err) => {
-          console.log('err: ', err);
-        });
+      return SWAPI.getPerson(id, (data) => {
+        dispatch({ type: 'SET_FAVORITES_LIST', payload: data });
+      });
     });
   };
-}
+};
 
 export { setFavoritesList };

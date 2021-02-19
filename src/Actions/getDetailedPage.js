@@ -1,21 +1,13 @@
-import axios from 'axios';
+// @ts-nocheck
 
-function getDetailedPage(id) {
+import { SWAPI } from '@Actions/SWAPI_wrapper';
+
+const getDetailedPage = (id) => {
   return (dispatch) => {
-    const URL = `https://swapi.dev/api/people/${id}/`;
-
-    return axios
-      .get(URL)
-      .then((response) => {
-        const hero = response.data;
-
-        dispatch({ type: 'SET_DETAILED_PAGE', payload: hero });
-      })
-      .catch((err) => {
-        console.log('err: ', err);
-        getDetailedPage(id);
-      });
+    return SWAPI.getPerson(id, (data) => {
+      dispatch({ type: 'SET_DETAILED_PAGE', payload: data });
+    });
   };
-}
+};
 
 export { getDetailedPage };
