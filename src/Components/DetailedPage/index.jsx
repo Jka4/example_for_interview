@@ -1,7 +1,12 @@
+// @ts-nocheck
+
 import React, { useEffect } from 'react';
+
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import { getDetailedPage } from '@Actions/getDetailedPage';
+
 import About from './views/About';
 import PanelWithTabs from './views/PanelWithTabs';
 

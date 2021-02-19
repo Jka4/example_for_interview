@@ -1,8 +1,11 @@
+// @ts-nocheck
+
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import '../styles/App.scss';
 
 import HeaderLine from '@Components/HeaderLine';
+
+import '../styles/App.scss';
 
 const HelloPage = lazy(() => import('./HelloPage'));
 const MainContainer = lazy(() => import('@Components/MainContainer'));

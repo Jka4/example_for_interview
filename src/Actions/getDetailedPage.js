@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function getDetailedPage(id) {
   return (dispatch) => {
-    const URL = `https://swapi.dev/api/people/${id}`;
+    const URL = `https://swapi.dev/api/people/${id}/`;
 
     return axios
       .get(URL)

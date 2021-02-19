@@ -1,10 +1,12 @@
+// @ts-nocheck
+
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-
-import { useSelector } from 'react-redux';
-import Fuse from 'fuse.js';
-
 import { NavLink } from 'react-router-dom';
+import PropTypes, { checkPropTypes } from 'prop-types';
+import { useSelector } from 'react-redux';
+
+import Fuse from 'fuse.js';
+import TextField from '@material-ui/core/TextField';
 
 import { getIconByGender, getHeroId } from '../helpers/index';
 
@@ -26,6 +28,9 @@ let fuseOptions = {
 const SideBar = () => {
   const [filtered, setFiltered] = useState([]);
   let heroesList = useSelector((state) => state.heroesListPage);
+
+  const myPropTypes = { heroesList: PropTypes.array };
+  checkPropTypes(myPropTypes, { heroesList });
 
   const handleInput = (e) => {
     const value = e.target.value;

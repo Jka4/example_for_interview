@@ -1,17 +1,28 @@
+// @ts-nocheck
+
 import React, { useState, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes, { checkPropTypes } from 'prop-types';
+
+import { setFavorites } from '@Actions/setFavorites';
+import { cleanUpDetailsPage } from '@Actions/cleanUpDetailsPage';
 
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { setFavorites } from '@Actions/setFavorites';
-import { cleanUpDetailsPage } from '@Actions/cleanUpDetailsPage';
 
 const About = ({ heroId }) => {
   let detailedPage = useSelector((state) => state.detailedPage);
   let favorites = useSelector((state) => state).favorites;
-  let [isFavorite, setIsFavorite] = useState(false);
 
+  const myPropTypes = {
+    detailedPage: PropTypes.object,
+    favorites: PropTypes.array,
+  };
+
+  checkPropTypes(myPropTypes, { detailedPage, favorites });
+
+  let [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
 
   const { name, mass, hair_color, skin_color, eye_color, birth_year, gender } = detailedPage;

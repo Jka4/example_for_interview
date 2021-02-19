@@ -1,10 +1,12 @@
+// @ts-nocheck
+
 import React, { useEffect } from 'react';
+
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import PropTypes, { checkPropTypes } from 'prop-types';
 
 import { getHeroesPage } from '@Actions/getHeroesPage';
-
-import { useSelector, useDispatch } from 'react-redux';
-
 import { getIconByGender, getHeroId } from '../helpers/index';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -15,6 +17,14 @@ const Peoples = () => {
   let heroesList = useSelector((state) => state.heroesListPage);
   let pageIsFetching = useSelector((state) => state.pageIsFetching);
   let currentPage = useSelector((state) => state.heroesListCurrentPage);
+
+  const myPropTypes = {
+    heroesList: PropTypes.array,
+    pageIsFetching: PropTypes.bool,
+    currentPage: PropTypes.number,
+  };
+
+  checkPropTypes(myPropTypes, { heroesList, pageIsFetching, currentPage });
 
   const dispatch = useDispatch();
 

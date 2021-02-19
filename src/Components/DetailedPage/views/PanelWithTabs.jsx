@@ -1,12 +1,23 @@
+// @ts-nocheck
+
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+
 import { useSelector } from 'react-redux';
+import PropTypes, { checkPropTypes } from 'prop-types';
+
 import axios from 'axios';
 import uniqBy from 'lodash.uniqby';
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
+import 'react-tabs/style/react-tabs.css';
+
 const TabsPanel = () => {
   let detailedPage = useSelector((state) => state.detailedPage);
+
+  const myPropTypes = { detailedPage: PropTypes.object };
+  checkPropTypes(myPropTypes, { detailedPage });
+
   const { films, starships, species } = detailedPage;
 
   const tabsConfig = [

@@ -4,7 +4,7 @@ function getHeroesPage(pageNumber) {
   return (dispatch) => {
     dispatch({ type: 'PAGE_IS_FETCHING', payload: true });
 
-    const URL = `https://swapi.dev/api/people/?page=${pageNumber}`;
+    const URL = `https://swapi.dev/api/people/?page=${pageNumber}/`;
 
     return axios
       .get(URL)
