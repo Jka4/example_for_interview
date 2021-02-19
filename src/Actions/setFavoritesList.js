@@ -1,11 +1,11 @@
 // @ts-nocheck
 
-import { SWAPI } from '@Actions/SWAPI_wrapper';
+import { swapi } from '@Actions/utils/swapi';
 
 const setFavoritesList = (favorites) => {
   return (dispatch) => {
     favorites.forEach((id) => {
-      return SWAPI.getPerson(id, (data) => {
+      return swapi.getPerson(id, (data) => {
         dispatch({ type: 'SET_FAVORITES_LIST', payload: data });
       });
     });
