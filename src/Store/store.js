@@ -48,10 +48,10 @@ if (process.env.NODE_ENV === `development`) {
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState: ls.load('store'),
+  preloadedState: ls.load(),
   middleware: middlewares,
 });
 
-store.subscribe(throttle(() => ls.save(store.getState(), 'store'), 1000));
+store.subscribe(throttle(() => ls.save(store.getState()), 1000));
 
 export default store;
