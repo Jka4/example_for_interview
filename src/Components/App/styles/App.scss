@@ -9,6 +9,9 @@ html {
 
 html {
   background: #1b0b35;
+  // overflow-y: scroll;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
 }
 
 * {
