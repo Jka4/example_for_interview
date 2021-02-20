@@ -1,25 +1,27 @@
+// @ts-nocheck
+
 import axios from 'axios';
-import { cache, saveCache } from './cachingApiCallToLocalStorage';
+import { ls } from '@Utils/localStorage';
 
 const swapi = (() => {
   const rootURL = 'https://swapi.dev/api/';
 
   const request = (url, cb) => {
-    if (cache[url] !== undefined) {
-      return cb(cache[url]);
+    if (ls.cache[url] !== undefined) {
+      return cb(ls.cache[url]);
     }
 
     return axios
       .get(url)
       .then((res) => {
-        cache[url] = res.data;
+        ls.cache[url] = res.data;
         return res.data;
       })
       .then((data) => {
         if (typeof cb === 'function') {
           cb(data);
         }
-        saveCache(cache);
+        ls.save(ls.cache, 'API');
         return data;
       })
       .catch((err) => {

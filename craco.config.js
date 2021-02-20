@@ -5,6 +5,7 @@ module.exports = {
       '@Components': path.resolve(__dirname, './src/Components/'),
       '@Actions': path.resolve(__dirname, './src/Actions/'),
       '@Store': path.resolve(__dirname, './src/Store/store/'),
+      '@Utils': path.resolve(__dirname, './src/utils'),
     },
   },
 };

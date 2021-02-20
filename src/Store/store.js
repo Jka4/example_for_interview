@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import thunk from 'redux-thunk';
 
-import { saveState, loadState } from './localStorage';
+import { ls } from '@Utils/localStorage';
 
 import throttle from 'lodash.throttle';
 import uniqBy from 'lodash.uniqby';
@@ -48,10 +48,10 @@ if (process.env.NODE_ENV === `development`) {
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState: loadState(),
+  preloadedState: ls.load('store'),
   middleware: middlewares,
 });
 
-store.subscribe(throttle(() => saveState(store.getState()), 1000));
+store.subscribe(throttle(() => ls.save(store.getState(), 'store'), 1000));
 
 export default store;

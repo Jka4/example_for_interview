@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { swapi } from '@Actions/utils/swapi';
+import { swapi } from '@Utils/swapi';
 
 const setFavoritesList = (favorites) => {
   return (dispatch) => {
