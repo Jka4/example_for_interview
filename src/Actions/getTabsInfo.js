@@ -1,19 +1,12 @@
 // @ts-nocheck
 
-import axios from 'axios';
-import { ls } from '@Utils/localStorage';
+import { http } from '@Utils/apiCaching';
 
 const getTabsInfo = async (url) => {
-  if (ls.cache[url] !== undefined) return ls.cache[url];
-
-  return axios
-    .get(url)
-    .then((response) => {
-      const data = response.data;
-      ls.cache[url] = data;
-      ls.save(ls.cache, 'API');
-
-      return data;
+  return http()
+    .then(async (api) => {
+      const response = await api.get(url);
+      return response.data;
     })
     .catch(() => getTabsInfo(url));
 };

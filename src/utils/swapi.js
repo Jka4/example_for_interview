@@ -1,27 +1,18 @@
 // @ts-nocheck
 
-import axios from 'axios';
-import { ls } from '@Utils/localStorage';
+import { http } from './apiCaching';
 
 const swapi = (() => {
-  const rootURL = 'https://swapi.dev/api/';
-
   const request = (url, cb) => {
-    if (ls.cache[url] !== undefined) {
-      return cb(ls.cache[url]);
-    }
-
-    return axios
-      .get(url)
-      .then((res) => {
-        ls.cache[url] = res.data;
-        return res.data;
+    return http()
+      .then(async (api) => {
+        const response = await api.get(url);
+        return response.data;
       })
-      .then((data) => {
+      .then(async (data) => {
         if (typeof cb === 'function') {
-          cb(data);
+          await cb(data);
         }
-        ls.save(ls.cache, 'API');
         return data;
       })
       .catch((err) => {
@@ -29,13 +20,9 @@ const swapi = (() => {
       });
   };
 
-  const getResources = (cb) => {
-    return request(rootURL, cb);
-  };
-
   const singularRequestGenerator = (path) => {
     return (id, cb) => {
-      return request(rootURL + path + '/' + id + '/', cb);
+      return request(path + '/' + id + '/', cb);
     };
   };
 
@@ -64,15 +51,15 @@ const swapi = (() => {
           let value = queryObject[key];
           searchParams.append(key, value);
         }
-        return request(rootURL + path + '/?' + searchParams.toString(), cb);
+
+        return request(path + '/?' + searchParams.toString(), cb);
       }
 
-      return request(rootURL + path + '/', cb);
+      return request(path + '/', cb);
     };
   };
 
   return {
-    getResources: getResources,
     getPerson: singularRequestGenerator('people'),
     getPeople: pluralRequestGenerator('people'),
     getFilm: singularRequestGenerator('films'),
