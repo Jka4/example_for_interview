@@ -9,11 +9,10 @@ import { getIconByGender, getHeroId } from '../helpers/index';
 import { search } from '@Actions/search';
 
 const SideBar = () => {
-  let heroesList = useSelector((state) => state.heroesListPage);
   let searchResults = useSelector((state) => state.searchResults);
 
-  const myPropTypes = { heroesList: PropTypes.array, searchResults: PropTypes.array };
-  checkPropTypes(myPropTypes, { heroesList, searchResults });
+  const myPropTypes = { searchResults: PropTypes.array };
+  checkPropTypes(myPropTypes, { searchResults });
 
   const dispatch = useDispatch();
 
