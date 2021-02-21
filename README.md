@@ -39,3 +39,5 @@ Your app is ready to be deployed!
 - redux-logger
 - redux-thunk
 - use-sound"
+- localforage
+- axios-cache-adapter
