@@ -16,6 +16,7 @@ let defaultState = {
   detailedPage: {},
   favorites: [],
   favoritesList: [],
+  searchResults: [],
 };
 
 function rootReducer(state = defaultState, action) {
@@ -34,6 +35,8 @@ function rootReducer(state = defaultState, action) {
       return { ...state, favorites: payload };
     case 'SET_FAVORITES_LIST':
       return { ...state, favoritesList: uniqBy([...state.favoritesList, payload], 'name') };
+    case 'SET_SEARCH_RESULTS':
+      return { ...state, searchResults: payload };
     default:
       return state;
   }

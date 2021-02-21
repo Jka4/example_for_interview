@@ -1,66 +1,38 @@
 // @ts-nocheck
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes, { checkPropTypes } from 'prop-types';
-import { useSelector } from 'react-redux';
-
-import Fuse from 'fuse.js';
-import TextField from '@material-ui/core/TextField';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { getIconByGender, getHeroId } from '../helpers/index';
-
-let fuseOptions = {
-  shouldSort: true,
-  tokenize: true,
-  matchAllTokens: false,
-  findAllMatches: false,
-  includeScore: true,
-  includeMatches: true,
-  threshold: 0.3,
-  location: 0,
-  distance: 10,
-  maxPatternLength: 20,
-  minMatchCharLength: 1,
-  keys: ['name'],
-};
+import { search } from '@Actions/search';
 
 const SideBar = () => {
-  const [filtered, setFiltered] = useState([]);
   let heroesList = useSelector((state) => state.heroesListPage);
+  let searchResults = useSelector((state) => state.searchResults);
 
-  const myPropTypes = { heroesList: PropTypes.array };
-  checkPropTypes(myPropTypes, { heroesList });
+  const myPropTypes = { heroesList: PropTypes.array, searchResults: PropTypes.array };
+  checkPropTypes(myPropTypes, { heroesList, searchResults });
+
+  const dispatch = useDispatch();
 
   const handleInput = (e) => {
     const value = e.target.value;
-    const fuse = new Fuse(heroesList, fuseOptions);
-    const result = fuse.search(value);
-    setFiltered(result);
+    dispatch(search(value));
   };
-
-  // since this api does not have an url for searching,
-  // then in this component
-  // I made a search only on the current page (just for example)
 
   return (
     <>
       <div className="sideBar">
-        {/* <TextField
-          id="outlined-basic"
-          onChange={handleInput}
-          label="Search by name"
-          variant="outlined"
-          autoComplete="off"
-        /> */}
         <input type="text" className="searchInput" placeholder="Search by name" onChange={handleInput} />
 
         <div className="searchResults">
-          {filtered.map((el) => (
-            <NavLink to={`/detailedPage/${getHeroId(el.item.url)}`} key={el.item.name}>
+          {searchResults?.map((el) => (
+            <NavLink to={`/detailedPage/${getHeroId(el.url)}`} key={el.name}>
               <div className="listElement">
-                <div className="heroImage">{getIconByGender(el.item.gender)}</div>
-                <span className="name">{el.item.name}</span>
+                <div className="heroImage">{getIconByGender(el.gender)}</div>
+                <span className="name">{el.name}</span>
               </div>
             </NavLink>
           ))}
