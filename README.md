@@ -7,7 +7,7 @@ In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000/steelKiwi/](http://localhost:3000/steelKiwi/) to view it in the browser.
+Open [http://localhost:3000/example_for_interview/](http://localhost:3000/example_for_interview/) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
@@ -38,6 +38,6 @@ Your app is ready to be deployed!
 - react-tabs
 - redux-logger
 - redux-thunk
-- use-sound"
+- use-sound
 - localforage
 - axios-cache-adapter
