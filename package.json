@@ -1,9 +1,9 @@
 {
-  "name": "steelKiwi",
+  "name": "example_for_interview",
   "version": "0.1.1",
   "private": true,
   "author": "Vladimir Plotnik <plotnik1295@gmail.com>",
-  "homepage": "http://jka4.github.io/steelKiwi",
+  "homepage": "http://jka4.github.io/example_for_interview",
   "scripts": {
     "start": "craco start",
     "build": "craco build"
